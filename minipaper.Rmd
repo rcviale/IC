@@ -1,0 +1,31 @@
+---
+title: "Mini Paper"
+author: "Rodrigo Viale"
+date: "2023-03-13"
+output: 
+  bookdown::html_document2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction {#intro}
+
+# Data and Methodology {#dnm}
+
+The data for this work was obtained from the website of the Center for Research in Financial Economics of the University of São Paulo (NEFIN), using the datasets named “3 portfolios sorted by size” and “7 portfolios sorted by industry”. These portfolios are formed firstly by selecting all the stocks listed in the B3 that meet the following criteria:  
+
+1.	The stock was the most traded stock of the firm in p-1 (the one with the highest traded volume during p-1).
+2.	The stock was traded in more than 80% of the days in year p-1 with value traded greater than R$ 500.000,00 per day. In case the stock was listed in year p-1, the period considered goes from the listing day to the last day of the year p-1.
+3.	The stock was initially listed prior to December of year p-1 (i.e., the stock has at least one month worth of data).
+
+Next, the eligible stocks are sorted by their market capitalization in p-1 (the market capitalization of the firm the stock belongs to) and separated into terciles to form the 3 portfolios sorted by size, which are held in year p.  For the 7 portfolios sorted by industry, the eligible stocks are separated into the following industries: Basic Products, Construction, Consumer, Energy, Financial, Manufacturing and Other. Finally, NEFIN then provides the value-weighted daily returns and the equal-weighted daily returns for these portfolios.
+The value-weighted returns of portfolio P on day t are computed as 
+
+\begin{equation}
+(\#eq:vwr)
+
+R_{P, t} = \sum_{i = 1}^{N} w_{i, t} r_{i, t}
+
+\end{equation}
